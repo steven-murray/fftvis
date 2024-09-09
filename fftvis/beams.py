@@ -43,12 +43,11 @@ def _evaluate_beam(
             "reuse_spline": True,
             "check_azza_domain": False,
             "spline_opts": spline_opts,
+            "interpolation_function": "az_za_map_coordinates",
         }
         if isinstance(beam, UVBeam)
         else {}
     )
-    if isinstance(beam, UVBeam) and not beam.future_array_shapes:
-        beam.use_future_array_shapes()
 
     interp_beam = beam.interp(
         az_array=az,
